@@ -1,4 +1,4 @@
-const CACHE_NAME = 'shiftin-v3';
+const CACHE_NAME = 'shiftin-v4';
 const ASSETS = [
   '/',
   '/index.html',

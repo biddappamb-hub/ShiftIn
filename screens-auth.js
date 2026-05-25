@@ -40,9 +40,23 @@ export function renderEmployeeLogin(el) {
   
   document.getElementById('email-form').onsubmit = async (e) => {
     e.preventDefault();
-    const email = document.getElementById('email-input').value.trim();
-    const pass = document.getElementById('pass-input').value;
-    if (!email || !pass) return showToast('Enter email and password', 'warning');
+    const emailEl = document.getElementById('email-input');
+    const passEl = document.getElementById('pass-input');
+    const email = emailEl.value.trim();
+    const pass = passEl.value;
+    emailEl.classList.remove('input-error');
+    passEl.classList.remove('input-error');
+    
+    if (!email || !pass) {
+      if (!email) emailEl.classList.add('input-error');
+      if (!pass) passEl.classList.add('input-error');
+      return showToast('Enter email and password', 'warning');
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      emailEl.classList.add('input-error');
+      return showToast('Please enter a valid email address', 'warning');
+    }
     
     const btn = document.getElementById('btn-signin');
     btn.disabled = true;
@@ -73,9 +87,23 @@ export function renderEmployerLogin(el) {
   
   document.getElementById('email-form-emp').onsubmit = async (e) => {
     e.preventDefault();
-    const email = document.getElementById('email-input-emp').value.trim();
-    const pass = document.getElementById('pass-input-emp').value;
-    if (!email || !pass) return showToast('Enter email and password', 'warning');
+    const emailEl = document.getElementById('email-input-emp');
+    const passEl = document.getElementById('pass-input-emp');
+    const email = emailEl.value.trim();
+    const pass = passEl.value;
+    emailEl.classList.remove('input-error');
+    passEl.classList.remove('input-error');
+    
+    if (!email || !pass) {
+      if (!email) emailEl.classList.add('input-error');
+      if (!pass) passEl.classList.add('input-error');
+      return showToast('Enter email and password', 'warning');
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      emailEl.classList.add('input-error');
+      return showToast('Please enter a valid email address', 'warning');
+    }
     
     const btn = document.getElementById('btn-signin-emp');
     btn.disabled = true;
@@ -107,10 +135,27 @@ export function renderEmployerRegister(el) {
   
   document.getElementById('reg-form-emp').onsubmit = async (e) => {
     e.preventDefault();
-    const email = document.getElementById('email-input-emp').value.trim();
-    const pass = document.getElementById('pass-input-emp').value;
-    if (!email || !pass) return showToast('Enter email and password', 'warning');
-    if (pass.length < 6) return showToast('Password must be at least 6 characters', 'warning');
+    const emailEl = document.getElementById('email-input-emp');
+    const passEl = document.getElementById('pass-input-emp');
+    const email = emailEl.value.trim();
+    const pass = passEl.value;
+    emailEl.classList.remove('input-error');
+    passEl.classList.remove('input-error');
+    
+    if (!email || !pass) {
+      if (!email) emailEl.classList.add('input-error');
+      if (!pass) passEl.classList.add('input-error');
+      return showToast('Enter email and password', 'warning');
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      emailEl.classList.add('input-error');
+      return showToast('Please enter a valid email address', 'warning');
+    }
+    if (pass.length < 6) {
+      passEl.classList.add('input-error');
+      return showToast('Password must be at least 6 characters', 'warning');
+    }
     
     const btn = document.getElementById('btn-signup-emp');
     btn.disabled = true;
@@ -136,10 +181,27 @@ export function renderEmployeeRegister(el) {
   
   document.getElementById('reg-form').onsubmit = async (e) => {
     e.preventDefault();
-    const email = document.getElementById('email-input').value.trim();
-    const pass = document.getElementById('pass-input').value;
-    if (!email || !pass) return showToast('Enter email and password', 'warning');
-    if (pass.length < 6) return showToast('Password must be at least 6 characters', 'warning');
+    const emailEl = document.getElementById('email-input');
+    const passEl = document.getElementById('pass-input');
+    const email = emailEl.value.trim();
+    const pass = passEl.value;
+    emailEl.classList.remove('input-error');
+    passEl.classList.remove('input-error');
+    
+    if (!email || !pass) {
+      if (!email) emailEl.classList.add('input-error');
+      if (!pass) passEl.classList.add('input-error');
+      return showToast('Enter email and password', 'warning');
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      emailEl.classList.add('input-error');
+      return showToast('Please enter a valid email address', 'warning');
+    }
+    if (pass.length < 6) {
+      passEl.classList.add('input-error');
+      return showToast('Password must be at least 6 characters', 'warning');
+    }
     
     const btn = document.getElementById('btn-signup');
     btn.disabled = true;
